@@ -1,0 +1,24 @@
+{
+  "name": "sis-med-back",
+  "version": "1.0.0",
+  "description": "Back end for a Health Information System",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pollo2102/Sistema-Medico-Back.git"
+  },
+  "author": "Diego Valenzuela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pollo2102/Sistema-Medico-Back/issues"
+  },
+  "homepage": "https://github.com/Pollo2102/Sistema-Medico-Back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.0"
+  }
+}
