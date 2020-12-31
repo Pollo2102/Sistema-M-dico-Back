@@ -4,9 +4,18 @@
 // CHANGE ALL THE CODE BELOW!!!!
 const express = require('express');
 const router = express.Router();
-const userService = require('./users.service');
+const patientsService = require('./patients.service');
 
-authenticate = (req, res, next) => {
+insert = (req, res, next) => {
+    patientsService.registerPatient(req.body)
+    .then(stat => {
+        res.status(200);
+        res.send('Ok');
+    })
+    .catch(next);
+}
+
+/* authenticate = (req, res, next) => {
     userService.authenticate(req.body)
     .then(user => {
         res.json(user);  
@@ -18,12 +27,9 @@ getAll = (req, res, next) => {
     userService.getAll()
     .then(users => res.json(users))
     .catch(next);
-}
+} */
 
 // routes
-router.post('/authenticate', authenticate);
-router.get('/', getAll);
+router.post('/insert', insert);
 
 module.exports = router;
-
-// Ex code

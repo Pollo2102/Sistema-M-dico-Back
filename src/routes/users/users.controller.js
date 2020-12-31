@@ -7,7 +7,7 @@ const userService = require('./users.service');
 authenticate = (req, res, next) => {
     userService.authenticate(req.body)
     .then(user => {
-        res.json(user);  
+        res.json(user);
     })
     .catch(next);
 }

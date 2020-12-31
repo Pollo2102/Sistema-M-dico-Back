@@ -16,9 +16,9 @@ app.use(jwt());
 
 app.use('/users', require('./routes/users/users.controller'));
 
-app.use(errorHandler);
+app.use('/patients', require('./routes/patients/patients.controller'));
 
-// app.use(require('./routes/users'));
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
     res.send('Sistema de Información de Salud API.\n');
