@@ -8,7 +8,8 @@ jwt = () => {
         path: [
             // public routes that don't require authentication
             '/users/authenticate',
-            '/patients/insert'
+            '/patients/insert',
+            '/user-patients/insert',
         ]
     });
 }

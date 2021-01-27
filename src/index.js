@@ -18,6 +18,8 @@ app.use('/users', require('./routes/users/users.controller'));
 
 app.use('/patients', require('./routes/patients/patients.controller'));
 
+app.use('/user-patients', require('./routes/user_patient/users_patients.controller'));
+
 app.use(errorHandler);
 
 app.get('/', (req, res) => {

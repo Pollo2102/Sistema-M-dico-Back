@@ -40,7 +40,6 @@ registerPatient = (userInfo) => {
 
       
       return new Promise((resolve, reject) => {
-        // let newUser = new Patient(userInfo.id, userInfo.nombre_completo, userInfo.fecha_nacimiento, userInfo.lugar_nacimiento, userInfo.edad, userInfo.nombre_madre, userInfo.nombre_padre, userInfo.sexo, userInfo.procedencia, userInfo.estado_civil, userInfo.religion, userInfo.sintoma_principal, userInfo.historia_enfermedad_actual, userInfo.funciones_organicas_generales, userInfo.revision_por_organos_aparatos_sistemas, userInfo.antecedentes_personales_patologicos, userInfo.datos_del_nacimiento, userInfo.antecedentes_personales_patologicos, userInfo.antecedentes_personales_no_patologicos, userInfo.vacunacion, userInfo.escolaridad, userInfo.medio_ambiente);
         
         let newUser = [userInfo.id, userInfo.nombre_completo, userInfo.fecha_nacimiento, userInfo.lugar_nacimiento, userInfo.edad, userInfo.nombre_madre, userInfo.nombre_padre, userInfo.sexo, userInfo.procedencia, userInfo.estado_civil, userInfo.religion, userInfo.sintoma_principal, userInfo.historia_enfermedad_actual, userInfo.funciones_organicas_generales, userInfo.revision_por_organos_aparatos_sistemas, userInfo.antecedentes_personales_patologicos, userInfo.datos_del_nacimiento, userInfo.antecedentes_personales_patologicos, userInfo.antecedentes_personales_no_patologicos, userInfo.vacunacion, userInfo.escolaridad, userInfo.medio_ambiente];
 
@@ -60,13 +59,6 @@ registerPatient = (userInfo) => {
 
 async function getAll() {
     return users.map(u => omitPassword(u));
-}
-
-// helper functions
-
-function omitPassword(user) {
-    const { password, ...userWithoutPassword } = user;
-    return userWithoutPassword;
 }
 
 module.exports = {
