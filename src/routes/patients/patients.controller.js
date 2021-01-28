@@ -5,7 +5,6 @@ const router = express.Router();
 const patientsService = require('./patients.service');
 
 insert = (req, res, next) => {
-    console.log(`Request Body: ${JSON.stringify(req.body)}`);
     patientsService.registerPatient(req.body)
     .then(stat => {
         res.status(200);
@@ -14,8 +13,18 @@ insert = (req, res, next) => {
     .catch(next);
 }
 
+get = (req, res, next) => {
+    patientsService.getPatient(req.params.id)
+    .then(user => {
+        res.json(user.rows[0]);
+        res.status(200);
+    })
+    .catch(next);
+}
+
 
 // routes
 router.post('/insert', insert);
+router.get('/get/:id', get);
 
 module.exports = router;

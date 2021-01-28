@@ -57,11 +57,30 @@ registerPatient = (userInfo) => {
     });
 }
 
+getPatient = (patientID) => {
+
+    let postQuery = `SELECT * from paciente WHERE id = $1;`;
+      
+    return new Promise((resolve, reject) => {
+        
+        client
+        .query(postQuery, [patientID])
+        .then(res => {
+            console.log('Query successful.');
+            resolve(res);
+        })
+        .catch(e => {
+            console.log(e.stack);
+        });
+    });
+}
+
 async function getAll() {
     return users.map(u => omitPassword(u));
 }
 
 module.exports = {
     registerPatient,
+    getPatient,
     getAll,
 };
