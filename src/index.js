@@ -20,6 +20,8 @@ app.use('/patients', require('./routes/patients/patients.controller'));
 
 app.use('/user-patients', require('./routes/user_patient/users_patients.controller'));
 
+app.use('/exam', require('./routes/physical_exam_adult/exam.controller'));
+
 app.use(errorHandler);
 
 app.get('/', (req, res) => {
