@@ -1,5 +1,5 @@
 const express = require('express');
-const client = require('../../DBInfo');
+const client = require('../../DBInfo.js');
 const User = require('../../models/users.js');
 
 const router = express.Router();
