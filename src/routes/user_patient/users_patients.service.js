@@ -9,7 +9,6 @@ const router = express.Router();
 
 const config = require('../../config.json');
 const jwt = require('jsonwebtoken');
-const { user } = require('../../DBInfo');
 
 registerUserPatient = (regInfo) => {
 
