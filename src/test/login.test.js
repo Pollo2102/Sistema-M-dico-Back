@@ -1,13 +1,19 @@
+const { JsonWebTokenError } = require('jsonwebtoken');
 let supertest = require('supertest');
 const { app, server } = require('../index');
 const request = supertest(app);
 
+afterEach(async () => {
+    await server.close();
+})
+
+afterAll(async () => {
+    await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
+});
+
 describe('Login Test', () => {
 
-    // before((done) => {
-    //     app = router.createApp();
-    //     done();
-    // })
+    jest.setTimeout(15000);
 
     it('should return 200', async done => {
         const response = await request
