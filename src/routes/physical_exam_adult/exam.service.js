@@ -68,14 +68,14 @@ registerExam = (examInfo) => {
 
 getExams = (userID, patientID) => {
 
-    let postQuery = `DO $do$ BEGIN IF EXISTS(SELECT from usuario_paciente WHERE usuario_id = $1 AND paciente_id = $2) THEN SELECT distinct on (fecha_examen) exam.* FROM examen_fisico_adulto exam WHERE paciente_id = $2; END IF; END $do$;`;
+    let postQuery = `SELECT exam.fecha_examen FROM examen_fisico_adulto exam INNER JOIN usuario_paciente up ON exam.paciente_id = up.paciente_id WHERE up.paciente_id = $2 AND up.usuario_id = $1;`;
 
     let postQuery2 = `SELECT exam.fecha_examen FROM examen_fisico_adulto exam WHERE EXISTS (SELECT * FROM usuario_paciente WHERE paciente_id = $2 AND usuario_id = $1);`;
       
     return new Promise((resolve, reject) => {
         
         client
-        .query(postQuery2, [userID, patientID])
+        .query(postQuery, [userID, patientID])
         .then(res => {
             console.log('Query successful.');
             resolve(res);
